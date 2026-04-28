@@ -1,0 +1,10 @@
+﻿{% assign current_category = page.category | default: page.categories.first %}
+<nav class="breadcrumbs" aria-label="面包屑">
+  <a href="{{ '/' | relative_url }}">首页</a>
+  {% if current_category %}
+    <span>/</span>
+    <a href="{{ '/categories/' | relative_url }}#{{ current_category | slugify }}">{{ current_category }}</a>
+  {% endif %}
+  <span>/</span>
+  <span>{{ page.title }}</span>
+</nav>

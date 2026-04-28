@@ -1,0 +1,111 @@
+﻿---
+layout: default
+title: 粉丝之家博客
+description: 围绕多平台增长、内容投放、服务体验与品牌运营的中文博客首页。
+---
+
+<section class="hero hero--brand">
+  <div class="hero__content">
+    <p class="hero__eyebrow">NAM6 CONTENT HUB</p>
+    <h1>粉丝之家博客</h1>
+    <p class="hero__lead">从多平台运营、账号增长、服务体验到独立站内容建设，把零散经验整理成可复用的中文笔记。</p>
+    <p class="hero__actions">
+      <a class="button-like" href="{{ '/archive/' | relative_url }}">最新文章</a>
+      <a class="button-like button-like--ghost" href="https://nam6.com">访问 nam6.com</a>
+      <a class="button-like button-like--ghost" href="{{ '/categories/' | relative_url }}">浏览专题</a>
+    </p>
+  </div>
+  <div class="hero-panel">
+    <p class="hero-panel__label">写作焦点</p>
+    <ul class="hero-panel__list">
+      <li>多平台社媒运营观察</li>
+      <li>下单流程与服务体验拆解</li>
+      <li>内容增长与站点搭建方法</li>
+    </ul>
+  </div>
+</section>
+
+<section class="brand-grid">
+  <article class="card card--accent">
+    <p class="card__eyebrow">内容定位</p>
+    <h2>不是工具站说明书</h2>
+    <p>这里更像品牌内容中枢，强调运营视角、用户问题与长期更新，而不是单纯罗列功能。</p>
+  </article>
+  <article class="card">
+    <p class="card__eyebrow">视觉方向</p>
+    <h2>深夜杂志风</h2>
+    <p>采用深色背景、暖金与珊瑚高亮，和 `zfensi` 的亮色增长风保持清晰区隔。</p>
+  </article>
+  <article class="card">
+    <p class="card__eyebrow">品牌连接</p>
+    <h2>围绕 nam6.com 展开</h2>
+    <p>博客负责沉淀方法和观察，主站承接多平台服务与转化，形成内容与业务的双入口。</p>
+  </article>
+</section>
+
+<section class="section-header">
+  <h2>重点专题</h2>
+  <p>从用户决策、平台组合到内容执行，先看问题，再看方法。</p>
+</section>
+
+<section class="topic-grid">
+  <a class="topic-card" href="{{ '/categories/' | relative_url }}#平台观察">
+    <span class="topic-card__label">专题 01</span>
+    <strong>平台观察</strong>
+    <span>Instagram、TikTok、Telegram、X 等平台如何协同。</span>
+  </a>
+  <a class="topic-card" href="{{ '/categories/' | relative_url }}#运营方法">
+    <span class="topic-card__label">专题 02</span>
+    <strong>运营方法</strong>
+    <span>节奏、分批、补量、内容更新与团队协作方法。</span>
+  </a>
+  <a class="topic-card" href="{{ '/categories/' | relative_url }}#建站笔记">
+    <span class="topic-card__label">专题 03</span>
+    <strong>建站笔记</strong>
+    <span>如何让 GitHub Pages 博客成为品牌外部内容资产。</span>
+  </a>
+</section>
+
+<section class="section-header">
+  <h2>最新文章</h2>
+  <p>优先展示最近发布的内容，首页支持分页。</p>
+</section>
+
+{% if paginator and paginator.posts %}
+  {% assign posts_to_render = paginator.posts %}
+{% else %}
+  {% assign posts_to_render = site.posts %}
+{% endif %}
+
+{% if posts_to_render.size > 0 %}
+<section class="post-listing">
+{% for post in posts_to_render %}
+  {% include post-card.html post=post %}
+{% endfor %}
+</section>
+{% else %}
+<p>还没有文章，先发布第一篇品牌内容。</p>
+{% endif %}
+
+{% if paginator and paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="分页导航">
+  {% if paginator.previous_page %}
+    <a class="button-like button-like--ghost" href="{{ paginator.previous_page_path | relative_url }}">上一页</a>
+  {% endif %}
+  <span class="pagination__status">第 {{ paginator.page }} / {{ paginator.total_pages }} 页</span>
+  {% if paginator.next_page %}
+    <a class="button-like button-like--ghost" href="{{ paginator.next_page_path | relative_url }}">下一页</a>
+  {% endif %}
+</nav>
+{% endif %}
+
+<section class="section-header">
+  <h2>快速入口</h2>
+  <p>
+    <a href="{{ '/archive/' | relative_url }}">归档页</a> /
+    <a href="{{ '/categories/' | relative_url }}">分类页</a> /
+    <a href="{{ '/tags/' | relative_url }}">标签页</a> /
+    <a href="{{ '/about/' | relative_url }}">关于页</a> /
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </p>
+</section>

@@ -1,0 +1,104 @@
+﻿{% assign page_title = page.title | default: site.title %}
+{% assign page_description = page.description | default: site.description %}
+{% assign page_image = page.cover | default: page.image | default: site.logo %}
+{% if page_image contains 'http' %}
+  {% assign full_image = page_image %}
+{% else %}
+  {% assign full_image = site.url | append: page_image %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "inLanguage": {{ site.lang | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.author | jsonify }},
+    "url": "https://nam6.com"
+  }
+}
+</script>
+{% if page.layout == 'post' %}
+{% assign current_category = page.category | default: page.categories.first %}
+{% assign current_category_anchor = current_category | slugify %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": {{ site.url | append: '/' | jsonify }}
+    }{% if current_category %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ current_category | jsonify }},
+      "item": {{ site.url | append: '/categories/#' | append: current_category_anchor | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": {{ site.url | append: page.url | jsonify }}
+    }{% else %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | jsonify }},
+      "item": {{ site.url | append: page.url | jsonify }}
+    }{% endif %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page_title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ site.url | append: page.url | jsonify }}
+  },
+  "image": [{{ full_image | jsonify }}],
+  "author": {
+    "@type": "Organization",
+    "name": {{ page.author | default: site.author | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.author | jsonify }}
+  },
+  "keywords": {{ page.tags | join: ', ' | jsonify }},
+  "articleSection": {{ current_category | default: 'Blog' | jsonify }}
+}
+</script>
+{% elsif page.url == '/archive/' or page.url == '/categories/' or page.url == '/tags/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page_title | jsonify }},
+  "url": {{ site.url | append: page.url | jsonify }},
+  "description": {{ page_description | jsonify }}
+}
+</script>
+{% elsif page.url == '/about/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": {{ page_title | jsonify }},
+  "url": {{ site.url | append: page.url | jsonify }},
+  "description": {{ page_description | jsonify }}
+}
+</script>
+{% endif %}

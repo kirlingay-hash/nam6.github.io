@@ -1,0 +1,24 @@
+﻿<header class="site-header" role="banner">
+  <div class="wrapper header-shell">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-nav__links">
+        {% for item in site.navigation %}
+          {% if item.url contains 'http' %}
+            <a class="page-link" href="{{ item.url }}">{{ item.title | escape }}</a>
+          {% else %}
+            <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% assign sorted_categories = site.categories | sort %}
+      {% if sorted_categories.size > 0 %}
+      <div class="site-nav__categories" aria-label="专题入口">
+        {% for category in sorted_categories limit: 6 %}
+          <a class="tag-chip" href="{{ '/categories/' | relative_url }}#{{ category[0] | slugify }}">{{ category[0] }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </nav>
+  </div>
+</header>

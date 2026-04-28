@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">粉丝之家博客封面</title>
+  <desc id="desc">深色背景搭配暖金与珊瑚渐变的品牌封面图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fb7185" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="980" cy="120" r="170" fill="#fb7185" fill-opacity="0.18" />
+  <circle cx="180" cy="520" r="220" fill="#f59e0b" fill-opacity="0.16" />
+  <rect x="84" y="82" width="1032" height="466" rx="28" fill="#131a2e" fill-opacity="0.9" stroke="#f59e0b" stroke-opacity="0.28" />
+  <text x="132" y="192" fill="#f59e0b" font-size="30" font-family="Segoe UI, Arial, sans-serif" letter-spacing="6">NAM6 CONTENT HUB</text>
+  <text x="132" y="302" fill="#f9fafb" font-size="72" font-weight="700" font-family="Segoe UI, Arial, sans-serif">粉丝之家博客</text>
+  <text x="132" y="372" fill="#d1d5db" font-size="28" font-family="Segoe UI, Arial, sans-serif">多平台运营 / 内容增长 / 建站笔记</text>
+  <rect x="132" y="430" width="250" height="14" rx="7" fill="url(#accent)" />
+</svg>
