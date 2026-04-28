@@ -1,4 +1,4 @@
-﻿title: 粉丝之家博客
+title: 粉丝之家博客
 description: 记录多平台社媒运营、内容增长、下单体验与站点建设的中文博客。
 theme: minima
 lang: zh-CN
@@ -8,7 +8,7 @@ baseurl: ""
 author: nam6
 timezone: Asia/Shanghai
 show_excerpts: true
-permalink: /:year/:month/:day/:title/
+permalink: /:slug/
 logo: /assets/site-cover.svg
 
 plugins:
