@@ -3,8 +3,9 @@
   <a href="{{ '/' | relative_url }}">首页</a>
   {% if current_category %}
     <span>/</span>
-    <a href="{{ '/categories/' | relative_url }}#{{ current_category | slugify }}">{{ current_category }}</a>
+    <a href="{{ '/categories/' | relative_url }}#{{ current_category | url_encode }}">{{ current_category }}</a>
   {% endif %}
   <span>/</span>
   <span>{{ page.title }}</span>
 </nav>
+

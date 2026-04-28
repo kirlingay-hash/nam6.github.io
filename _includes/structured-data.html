@@ -23,7 +23,7 @@
 </script>
 {% if page.layout == 'post' %}
 {% assign current_category = page.category | default: page.categories.first %}
-{% assign current_category_anchor = current_category | slugify %}
+{% assign current_category_anchor = current_category | url_encode %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,3 +102,4 @@
 }
 </script>
 {% endif %}
+

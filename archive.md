@@ -22,12 +22,12 @@ description: 按时间查看粉丝之家博客的全部文章归档。
 </section>
 <section class="taxonomy-links">
   {% for category in site.categories %}
-    <a class="tag-chip" href="#{{ category[0] | slugify }}">{{ category[0] }} ({{ category[1].size }})</a>
+    <a class="tag-chip" href="#{{ category[0] | url_encode }}">{{ category[0] }} ({{ category[1].size }})</a>
   {% endfor %}
 </section>
 
 {% for category in site.categories %}
-<section class="page-block" id="{{ category[0] | slugify }}">
+<section class="page-block" id="{{ category[0] | url_encode }}">
   <h2>{{ category[0] }}</h2>
   <div class="post-listing">
     {% for post in category[1] %}
@@ -59,3 +59,5 @@ description: 按时间查看粉丝之家博客的全部文章归档。
 {% else %}
 <p>当前还没有已发布文章。</p>
 {% endif %}
+
+

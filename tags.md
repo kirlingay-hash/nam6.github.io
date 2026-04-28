@@ -18,12 +18,12 @@ description: 按标签浏览粉丝之家博客文章。
 {% if site.tags.size > 0 %}
 <section class="taxonomy-links">
   {% for tag in site.tags %}
-    <a class="tag-chip" href="#{{ tag[0] | slugify }}">{{ tag[0] }} ({{ tag[1].size }})</a>
+    <a class="tag-chip" href="#{{ tag[0] | url_encode }}">{{ tag[0] }} ({{ tag[1].size }})</a>
   {% endfor %}
 </section>
 
 {% for tag in site.tags %}
-<section class="page-block" id="{{ tag[0] | slugify }}">
+<section class="page-block" id="{{ tag[0] | url_encode }}">
   <h2>{{ tag[0] }}</h2>
   <div class="post-listing">
     {% for post in tag[1] %}
@@ -35,3 +35,5 @@ description: 按标签浏览粉丝之家博客文章。
 {% else %}
 <p>当前还没有标签内容。</p>
 {% endif %}
+
+

@@ -15,10 +15,11 @@
       {% if sorted_categories.size > 0 %}
       <div class="site-nav__categories" aria-label="专题入口">
         {% for category in sorted_categories limit: 6 %}
-          <a class="tag-chip" href="{{ '/categories/' | relative_url }}#{{ category[0] | slugify }}">{{ category[0] }}</a>
+          <a class="tag-chip" href="{{ '/categories/' | relative_url }}#{{ category[0] | url_encode }}">{{ category[0] }}</a>
         {% endfor %}
       </div>
       {% endif %}
     </nav>
   </div>
 </header>
+

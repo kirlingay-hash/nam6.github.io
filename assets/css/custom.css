@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #0b1020;
   --panel: #131a2e;
   --panel-soft: #18213a;
@@ -41,6 +41,19 @@ body {
 .site-title {
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.site-nav {
+  position: static;
+  float: none;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.site-nav .page-link:not(:last-child) {
+  margin-right: 0;
 }
 
 .header-shell {
@@ -359,5 +372,9 @@ body {
 
   .hero h1 {
     font-size: 2.3rem;
+  }
+
+  .site-nav {
+    padding-top: 0;
   }
 }

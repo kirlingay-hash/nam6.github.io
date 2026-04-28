@@ -30,7 +30,7 @@ layout: default
     <p class="post-header__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
       {% if current_category %}
-        / <a href="{{ '/categories/' | relative_url }}#{{ current_category | slugify }}">{{ current_category }}</a>
+        / <a href="{{ '/categories/' | relative_url }}#{{ current_category | url_encode }}">{{ current_category }}</a>
       {% endif %}
     </p>
     {% if page.description %}
@@ -39,7 +39,7 @@ layout: default
     {% if page.tags and page.tags.size > 0 %}
     <p class="post-card__tags">
       {% for tag in page.tags %}
-        <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+        <a class="tag-chip" href="{{ '/tags/' | relative_url }}#{{ tag | url_encode }}">{{ tag }}</a>
       {% endfor %}
     </p>
     {% endif %}
@@ -165,3 +165,5 @@ layout: default
     {% endfor %}
   </section>
 </article>
+
+
