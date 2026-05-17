@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: 粉丝之家博客
 description: 围绕多平台增长、内容投放、服务体验与品牌运营的中文博客首页。
@@ -109,6 +109,3 @@ description: 围绕多平台增长、内容投放、服务体验与品牌运营�
     <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
   </p>
 </section>
-
-
-
