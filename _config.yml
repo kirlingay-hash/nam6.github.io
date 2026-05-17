@@ -4,7 +4,7 @@ theme: minima
 lang: zh-CN
 locale: zh_CN
 url: https://kirlingay-hash.github.io
-baseurl: "/nam6.github.io"
+baseurl: ""
 author: nam6
 timezone: Asia/Shanghai
 show_excerpts: true
